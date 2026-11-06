@@ -220,7 +220,7 @@ export function ProposalEditor({
       if (next.data.updatedAt === proposal.updatedAt) return;
       if (next.data.updatedAt === ignoredVersion.current) return;
       if (!dirtyRef.current) {
-        toast("Proposal updated");
+        toast("Updated by Claude");
         router.refresh();
       } else {
         setConflict(true);
