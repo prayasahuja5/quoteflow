@@ -149,7 +149,7 @@ function snapshot(state: FormState) {
   });
 }
 
-function payloadFrom(state: FormState) {
+function payloadFrom(state: FormState, isNew: boolean) {
   return {
     title: state.title,
     client_name: state.clientName,
@@ -170,7 +170,7 @@ function payloadFrom(state: FormState) {
     tax_percent: state.taxPercent || 0,
     currency: state.currency,
     terms: state.terms,
-    valid_until: state.validUntil || null,
+    valid_until: state.validUntil || (isNew ? undefined : null),
   };
 }
 
@@ -220,7 +220,7 @@ export function ProposalEditor({
       if (next.data.updatedAt === proposal.updatedAt) return;
       if (next.data.updatedAt === ignoredVersion.current) return;
       if (!dirtyRef.current) {
-        toast("Updated by Claude");
+        toast("Proposal updated");
         router.refresh();
       } else {
         setConflict(true);
@@ -252,7 +252,7 @@ export function ProposalEditor({
     if (locked) return;
     setPending(andPublish ? "publish" : "save");
     setFieldErrors({});
-    const payload = payloadFrom(state);
+    const payload = payloadFrom(state, !proposal);
     const created = proposal
       ? await updateProposalAction(proposal.id, payload)
       : await createProposalAction(payload);

@@ -47,7 +47,7 @@ The web app and the MCP tools both call `src/lib/proposals/service.ts`. There is
 Quoteflow does not call an AI provider. Your own Claude does the writing. This command must return nothing:
 
 ```bash
-grep -riE "openai|anthropic-ai|@ai-sdk|langchain|generative-ai|groq|OPENAI_API_KEY|ANTHROPIC_API_KEY" src package.json
+grep -riE "openai|anthropic|@ai-sdk|langchain|generative-ai|groq|gemini|cohere|ollama|OPENAI_API_KEY|ANTHROPIC_API_KEY" src package.json
 ```
 
 ## Tech stack
