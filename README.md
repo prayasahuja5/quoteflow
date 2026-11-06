@@ -4,18 +4,29 @@ Your Claude writes the proposal. Quoteflow gets it signed.
 
 ## Live app
 
-Production: the Vercel project for this repo. Demo login:
+Production: https://quoteflow-prayasahuja5s-projects.vercel.app
+
+Demo login (also shown on the login page, with a "Fill demo login" button):
 
 - Email: `demo@quoteflow.app`
 - Password: `Quoteflow@2026`
 
 The demo account opens on four proposals (QF-0001 through QF-0004) for Northwind Studio.
 
+## Test it in 2 minutes
+
+1. Add the connector to Claude (steps below) and paste the demo MCP URL.
+2. Run one of the prompts below. Claude creates a real proposal through the MCP tools.
+3. Log in to the app with the demo account. The new proposal appears on the dashboard within a few seconds, tagged "via Claude". Open it, change a line item, and save. Totals recalculate on the server.
+4. Ask Claude to publish it. Open the client link in a private window (no login needed), then accept it with a typed name. The proposal locks, and Claude's `get_proposal` shows the acceptance.
+
+The demo MCP link is tied to the demo account, so everything Claude creates through it shows up under that login.
+
 ## Connect Claude in 60 seconds
 
 Demo MCP URL:
 
-`https://<your-production-domain>/api/mcp/qf_demo_c3363762edc2fc86e4238bc3`
+`https://quoteflow-prayasahuja5s-projects.vercel.app/api/mcp/qf_demo_c3363762edc2fc86e4238bc3`
 
 Locally the same path is `http://localhost:3000/api/mcp/qf_demo_c3363762edc2fc86e4238bc3`.
 
